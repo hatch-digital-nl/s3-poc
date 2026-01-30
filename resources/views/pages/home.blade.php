@@ -12,10 +12,12 @@ new class extends Component
     public function save()
     {
         $this->validate([
-            'file' => 'max:1024', // 1MB Max
+            'photo' => 'max:1024', // 1MB Max
         ]);
 
-        $this->photo->store('photos');
+        if ($this->photo) {
+            $this->photo->store('photos');
+        }
     }
 }
 ?>
