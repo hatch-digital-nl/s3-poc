@@ -48,3 +48,8 @@ docker compose up php
 # Analysis
 
 It looks like the Ceph Cluster randomly accepts the query parameter `x-amz-acl=private` and the signature matches. Other times this is filtered out and the signature no longer matches the given parameters resulting in a 403 error. 
+
+# Temporary fix
+A temporary fix we apply is commenting out `vendor/livewire/livewire/src/Features/SupportFileUploads/GenerateSignedUploadUrl.php:40` (`'ACL' => $visibility,`)
+
+See: https://github.com/livewire/livewire/discussions/4538
